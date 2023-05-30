@@ -5,11 +5,21 @@
             <text class="title">{{ title }}</text>
             <navigator url="/pages/test/index">跳去test</navigator>
         </view>
+        <view>
+            <text class="title">{{ model.a }}</text>
+            <text class="title">{{ indexModel.testValue }}</text>
+        </view>
     </view>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
+import { useModel } from '../../../../model/src/index';
+import { AppModel } from '../../model';
+import { IndexModel } from './model';
+
+const model = useModel(AppModel);
+const indexModel = useModel(IndexModel);
 const title = ref('Hello')
 </script>
 
